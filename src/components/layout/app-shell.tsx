@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -25,6 +26,18 @@ import { ThemeToggle } from '@/components/theme-toggle';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [isUnlocked, setIsUnlocked] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkUnlocked = () => {
+      setIsUnlocked(localStorage.getItem('loophr_demo_unlocked') === 'true');
+    };
+    
+    checkUnlocked(); // Initial check
+    window.addEventListener('demo_unlocked', checkUnlocked);
+    
+    return () => window.removeEventListener('demo_unlocked', checkUnlocked);
+  }, []);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -49,15 +62,20 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           {navItems.map((item) => {
             const isActive =
               pathname === item.href || pathname.startsWith(item.href + '/');
+            const requiresUnlock = item.step === 2 || item.step === 3 || item.step === 4;
+            const isDisabled = requiresUnlock && !isUnlocked;
+
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={isDisabled ? '#' : item.href}
+                onClick={(e) => isDisabled && e.preventDefault()}
                 className={cn(
                   'flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors',
                   isActive
                     ? 'bg-[var(--bg-elevated)] text-[var(--text-primary)]'
                     : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)]',
+                  isDisabled && 'opacity-50 pointer-events-none'
                 )}
               >
                 <item.icon className="h-4 w-4" />

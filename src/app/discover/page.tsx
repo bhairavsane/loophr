@@ -72,7 +72,11 @@ export default function DiscoverPage() {
       setTimeout(() => {
         setCompletedSteps((prev) => [...prev, step.id]);
         if (step.id === ANALYSIS_STEPS[ANALYSIS_STEPS.length - 1].id) {
-          setTimeout(() => setAnalysisComplete(true), 500);
+          setTimeout(() => {
+            setAnalysisComplete(true);
+            localStorage.setItem('loophr_demo_unlocked', 'true');
+            window.dispatchEvent(new Event('demo_unlocked'));
+          }, 500);
         }
       }, step.delay)
     );
