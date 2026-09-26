@@ -107,13 +107,10 @@ export default function LiveCasePage() {
 
       const data: LiveCaseResult = await res.json();
       setResult(data);
-    } catch (e) {
-      console.warn('Falling back to mock data due to API error:', e);
-      // Fallback to mock data if no API/Groq key
-      setTimeout(() => {
-        setResult(mockResponse);
-        setIsProcessing(false);
-      }, 1500);
+    } catch (e: any) {
+      console.warn('API error:', e);
+      setError(e.message || 'Failed to process request');
+      setIsProcessing(false);
       return;
     }
 
@@ -253,6 +250,16 @@ export default function LiveCasePage() {
                       </div>
                       <p className="animate-pulse">Analyzing context & policies...</p>
                     </motion.div>
+                  ) : error ? (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="flex flex-col items-center justify-center h-full text-[var(--error)] space-y-4 pt-12"
+                    >
+                      <AlertTriangle className="w-12 h-12" />
+                      <p className="text-center font-medium">Failed to process request</p>
+                      <p className="text-sm text-[var(--error)]/80">{error}</p>
+                    </motion.div>
                   ) : result ? (
                     <motion.div
                       key="result"
@@ -366,7 +373,7 @@ export default function LiveCasePage() {
                               className="flex items-center gap-2 text-[var(--success)] font-medium px-4 py-2"
                             >
                               <Check className="w-5 h-5" />
-                              Benefits update prepared. Confirmation sent to employee.
+                              {result.matched_workflow.replace(/_/g, ' ')} update prepared. Confirmation sent to employee.
                             </motion.div>
                           ) : (
                             <button

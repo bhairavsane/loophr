@@ -56,13 +56,12 @@ Employee context:
 Employee request: "${parsed.request_text}"
 
 Based on standard HR policies:
-- Benefits enrollment requires active full-time employees
-- Dependents can be added within 30 days of qualifying life event (marriage, birth, adoption)
-- Supported locations: US, India, UK, Germany, Singapore
-- Required documents: marriage certificate (spouse), birth certificate (child)
-- Employment letters available for active and recently terminated employees
-- Address updates processed within 1 business day
-- Remote work requires >6 months tenure and manager approval
+- Benefits enrollment (add_dependent): requires active full-time employees. Dependents can be added within 30 days of qualifying life event (marriage, birth, adoption). Required docs: marriage/birth certificate. Supported: US, India, UK, Germany, Singapore.
+- Employment verification letters (employment_letter): available for active and recently terminated employees.
+- Address updates (address_update): processed within 1 business day.
+- Remote work (remote_work): requires >6 months tenure and manager approval.
+- Relocation reimbursement (relocation): only available for Director level and above, or if explicitly stated in the offer letter. Requires HR Director approval. Standard reimbursement cap is $10k.
+- Leave balance queries (leave_balance): automatically processed.
 
 Determine:
 1. What workflow this request maps to
