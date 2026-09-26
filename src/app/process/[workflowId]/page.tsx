@@ -17,6 +17,7 @@ import {
   useEdgesState,
   MarkerType
 } from '@xyflow/react';
+import { useTheme } from 'next-themes';
 import '@xyflow/react/dist/style.css';
 // @ts-ignore
 import processDataRaw from '@/lib/data/cache/process-add-dependent.json';
@@ -65,6 +66,7 @@ export default function ProcessPage({ params }: { params: Promise<{ workflowId: 
   const resolvedParams = use(params);
   const workflowId = resolvedParams.workflowId;
   const [activeTab, setActiveTab] = useState<string>('main');
+  const { resolvedTheme } = useTheme();
 
   const { initialNodes, initialEdges } = useMemo(() => {
     const nodes: Node[] = [];
@@ -181,7 +183,7 @@ export default function ProcessPage({ params }: { params: Promise<{ workflowId: 
               nodeTypes={nodeTypes}
               fitView
               className="bg-[var(--bg)]"
-              colorMode="dark"
+              colorMode={resolvedTheme === 'dark' ? 'dark' : 'light'}
             >
               <Background color="var(--border-strong)" gap={16} size={1} />
               <Controls className="!bg-[var(--bg-surface)] !border-[var(--border)] !fill-[var(--text-primary)]" />

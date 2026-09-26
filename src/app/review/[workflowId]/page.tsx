@@ -28,6 +28,7 @@ import {
   Position,
   Handle
 } from '@xyflow/react';
+import { useTheme } from 'next-themes';
 import '@xyflow/react/dist/style.css';
 
 // Using unknown to bypass import errors if file doesn't exist during compilation
@@ -99,6 +100,7 @@ export default function ReviewPage({ params }: { params: Promise<{ workflowId: s
   const workflowId = resolvedParams.workflowId;
   const [activeTab, setActiveTab] = useState<'policy' | 'automation'>('policy');
   const [selectedNode, setSelectedNode] = useState<any | null>(null);
+  const { resolvedTheme } = useTheme();
 
   // Generate initial nodes and edges from workflowData
   const { initialNodes, initialEdges } = useMemo(() => {
@@ -352,6 +354,7 @@ export default function ReviewPage({ params }: { params: Promise<{ workflowId: s
                   nodeTypes={nodeTypes}
                   fitView
                   className="bg-[var(--bg)]"
+                  colorMode={resolvedTheme === 'dark' ? 'dark' : 'light'}
                   minZoom={0.5}
                 >
                   <Background color="var(--border)" gap={16} size={1} />
@@ -428,7 +431,7 @@ export default function ReviewPage({ params }: { params: Promise<{ workflowId: s
         <div className="mt-6 flex justify-end">
           <Link 
             href={`/replay/${workflowId}`}
-            className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
           >
             Run Historical Replay
             <ArrowRight size={18} />

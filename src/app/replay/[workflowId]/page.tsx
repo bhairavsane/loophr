@@ -90,10 +90,10 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
           {!isReplaying && !hasReplayed && (
             <button
               onClick={handleStartReplay}
-              className="flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+              className="flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-[0_0_15px_rgba(59,130,246,0.3)] whitespace-nowrap"
             >
               <Play size={18} fill="currentColor" />
-              Replay on {totalCases} historical cases
+              Run Audit ({totalCases} Cases)
             </button>
           )}
           
@@ -294,7 +294,7 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
               >
                 <Link 
                   href="/live"
-                  className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-8 py-3.5 rounded-full font-medium hover:opacity-90 transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-8 py-3.5 rounded-full font-medium hover:opacity-90 transition-all hover:scale-105 shadow-lg whitespace-nowrap"
                 >
                   Try Live Case
                   <ArrowRight size={18} />
