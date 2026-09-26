@@ -1,0 +1,671 @@
+{
+  "workflow_id": "add_dependent",
+  "workflow_name": "Add Dependent to Insurance",
+  "total": 73,
+  "match": 53,
+  "correct_escalation": 10,
+  "policy_drift": 5,
+  "automation_mismatch": 3,
+  "unknown": 2,
+  "safe_coverage_pct": 86.3,
+  "human_review_pct": 13.7,
+  "results": [
+    {
+      "case_id": "HR-0001",
+      "request_text": "We just had a baby boy yesterday! I need to add him to my health plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0002",
+      "request_text": "I legally adopted my daughter on the 5th and need to enroll her for benefits.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0003",
+      "request_text": "Just got married, can I update my health insurance to family coverage?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0004",
+      "request_text": "My wife had a baby two days ago, we need to add the newborn.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0005",
+      "request_text": "Finalized adoption proceedings this week, wanting to add child to medical.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0006",
+      "request_text": "Got married over the weekend, need to add my husband.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0007",
+      "request_text": "Need to enroll my newborn son on my insurance plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0008",
+      "request_text": "I got married on Friday, please help me add my spouse to insurance.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0009",
+      "request_text": "I got married last week. How do I add my spouse to my insurance?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0010",
+      "request_text": "We just had a baby boy yesterday! I need to add him to my health plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0011",
+      "request_text": "I legally adopted my daughter on the 5th and need to enroll her for benefits.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0012",
+      "request_text": "Just got married, can I update my health insurance to family coverage?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0013",
+      "request_text": "My wife had a baby two days ago, we need to add the newborn.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0014",
+      "request_text": "Finalized adoption proceedings this week, wanting to add child to medical.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0015",
+      "request_text": "Got married over the weekend, need to add my husband.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0016",
+      "request_text": "Need to enroll my newborn son on my insurance plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0017",
+      "request_text": "I got married on Friday, please help me add my spouse to insurance.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0018",
+      "request_text": "I got married last week. How do I add my spouse to my insurance?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0019",
+      "request_text": "We just had a baby boy yesterday! I need to add him to my health plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0020",
+      "request_text": "I legally adopted my daughter on the 5th and need to enroll her for benefits.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0021",
+      "request_text": "Just got married, can I update my health insurance to family coverage?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0022",
+      "request_text": "My wife had a baby two days ago, we need to add the newborn.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0023",
+      "request_text": "Finalized adoption proceedings this week, wanting to add child to medical.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0024",
+      "request_text": "Got married over the weekend, need to add my husband.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0025",
+      "request_text": "Need to enroll my newborn son on my insurance plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0026",
+      "request_text": "I got married on Friday, please help me add my spouse to insurance.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0027",
+      "request_text": "I got married last week. How do I add my spouse to my insurance?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0028",
+      "request_text": "We just had a baby boy yesterday! I need to add him to my health plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0029",
+      "request_text": "I legally adopted my daughter on the 5th and need to enroll her for benefits.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0030",
+      "request_text": "Just got married, can I update my health insurance to family coverage?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0031",
+      "request_text": "My wife had a baby two days ago, we need to add the newborn.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0032",
+      "request_text": "Finalized adoption proceedings this week, wanting to add child to medical.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0033",
+      "request_text": "Got married over the weekend, need to add my husband.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0034",
+      "request_text": "Need to enroll my newborn son on my insurance plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0035",
+      "request_text": "I got married on Friday, please help me add my spouse to insurance.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0036",
+      "request_text": "I got married last week. How do I add my spouse to my insurance?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0037",
+      "request_text": "We just had a baby boy yesterday! I need to add him to my health plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0038",
+      "request_text": "I legally adopted my daughter on the 5th and need to enroll her for benefits.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0039",
+      "request_text": "Just got married, can I update my health insurance to family coverage?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0040",
+      "request_text": "My wife had a baby two days ago, we need to add the newborn.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0041",
+      "request_text": "Finalized adoption proceedings this week, wanting to add child to medical.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0042",
+      "request_text": "Got married over the weekend, need to add my husband.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0043",
+      "request_text": "Need to enroll my newborn son on my insurance plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0044",
+      "request_text": "I got married on Friday, please help me add my spouse to insurance.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0045",
+      "request_text": "I got married last week. How do I add my spouse to my insurance?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0046",
+      "request_text": "We just had a baby boy yesterday! I need to add him to my health plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0047",
+      "request_text": "I legally adopted my daughter on the 5th and need to enroll her for benefits.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0048",
+      "request_text": "Just got married, can I update my health insurance to family coverage?",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0049",
+      "request_text": "My wife had a baby two days ago, we need to add the newborn.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0050",
+      "request_text": "Finalized adoption proceedings this week, wanting to add child to medical.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0051",
+      "request_text": "Got married over the weekend, need to add my husband.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0052",
+      "request_text": "Need to enroll my newborn son on my insurance plan.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0053",
+      "request_text": "I got married on Friday, please help me add my spouse to insurance.",
+      "automation_outcome": "approved",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "match",
+      "reasoning": "Active full-time employee, qualifying event within 30-day window, supported location. Automation correctly approves."
+    },
+    {
+      "case_id": "HR-0054",
+      "request_text": "Hi, I am a contractor here and want to add my spouse.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Contractors are ineligible for benefits. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0055",
+      "request_text": "My spouse lost their job, I want to add them but I am located in an unsupported region.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Unsupported geography. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0056",
+      "request_text": "Hi, I am a contractor here and want to add my spouse.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Contractors are ineligible for benefits. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0057",
+      "request_text": "My spouse lost their job, I want to add them but I am located in an unsupported region.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Unsupported geography. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0058",
+      "request_text": "Hi, I am a contractor here and want to add my spouse.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Contractors are ineligible for benefits. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0059",
+      "request_text": "My spouse lost their job, I want to add them but I am located in an unsupported region.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Unsupported geography. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0060",
+      "request_text": "Hi, I am a contractor here and want to add my spouse.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Contractors are ineligible for benefits. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0061",
+      "request_text": "My spouse lost their job, I want to add them but I am located in an unsupported region.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Unsupported geography. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0062",
+      "request_text": "Hi, I am a contractor here and want to add my spouse.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Contractors are ineligible for benefits. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0063",
+      "request_text": "My spouse lost their job, I want to add them but I am located in an unsupported region.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "escalated",
+      "policy_expected_outcome": "escalated",
+      "classification": "correct_escalation",
+      "reasoning": "Unsupported geography. Automation correctly escalated."
+    },
+    {
+      "case_id": "HR-0064",
+      "request_text": "I got married 40 days ago and forgot to update my insurance. Can I still add my spouse?",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "escalated",
+      "classification": "policy_drift",
+      "reasoning": "Request submitted after 30-day window. Historically approved without required exception review. Automation correctly escalates based on policy."
+    },
+    {
+      "case_id": "HR-0065",
+      "request_text": "I got married 40 days ago and forgot to update my insurance. Can I still add my spouse?",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "escalated",
+      "classification": "policy_drift",
+      "reasoning": "Request submitted after 30-day window. Historically approved without required exception review. Automation correctly escalates based on policy."
+    },
+    {
+      "case_id": "HR-0066",
+      "request_text": "I got married 40 days ago and forgot to update my insurance. Can I still add my spouse?",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "escalated",
+      "classification": "policy_drift",
+      "reasoning": "Request submitted after 30-day window. Historically approved without required exception review. Automation correctly escalates based on policy."
+    },
+    {
+      "case_id": "HR-0067",
+      "request_text": "I got married 40 days ago and forgot to update my insurance. Can I still add my spouse?",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "escalated",
+      "classification": "policy_drift",
+      "reasoning": "Request submitted after 30-day window. Historically approved without required exception review. Automation correctly escalates based on policy."
+    },
+    {
+      "case_id": "HR-0068",
+      "request_text": "I got married 40 days ago and forgot to update my insurance. Can I still add my spouse?",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "escalated",
+      "classification": "policy_drift",
+      "reasoning": "Request submitted after 30-day window. Historically approved without required exception review. Automation correctly escalates based on policy."
+    },
+    {
+      "case_id": "HR-0069",
+      "request_text": "Had a baby last week, adding them to benefits.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "automation_mismatch",
+      "reasoning": "Historically approved, but automation halted due to missing document verification step in case history."
+    },
+    {
+      "case_id": "HR-0070",
+      "request_text": "Had a baby last week, adding them to benefits.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "automation_mismatch",
+      "reasoning": "Historically approved, but automation halted due to missing document verification step in case history."
+    },
+    {
+      "case_id": "HR-0071",
+      "request_text": "Had a baby last week, adding them to benefits.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "approved",
+      "classification": "automation_mismatch",
+      "reasoning": "Historically approved, but automation halted due to missing document verification step in case history."
+    },
+    {
+      "case_id": "HR-0072",
+      "request_text": "Need to update my benefits profile to include my new dependent.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "unknown",
+      "classification": "unknown",
+      "reasoning": "Contradictory data regarding employee status or event date in records. Required human review."
+    },
+    {
+      "case_id": "HR-0073",
+      "request_text": "Need to update my benefits profile to include my new dependent.",
+      "automation_outcome": "escalated",
+      "historical_outcome": "approved",
+      "policy_expected_outcome": "unknown",
+      "classification": "unknown",
+      "reasoning": "Contradictory data regarding employee status or event date in records. Required human review."
+    }
+  ]
+}

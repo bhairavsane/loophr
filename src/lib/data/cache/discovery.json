@@ -1,0 +1,189 @@
+[
+  {
+    "workflow_id": "add_dependent",
+    "name": "Add Dependent to Insurance",
+    "category": "add_dependent",
+    "case_count": 73,
+    "avg_handling_time_minutes": 17,
+    "repeatability_pct": 91,
+    "score": {
+      "overall": 82,
+      "processConsistency": 85,
+      "repetition": 73,
+      "policyClarity": 90,
+      "dataAvailability": 88,
+      "exceptionRate": 16,
+      "penalties": [],
+      "recommendation": "strong"
+    },
+    "sample_cases": [
+      "HR-0001",
+      "HR-0005",
+      "HR-0012"
+    ]
+  },
+  {
+    "workflow_id": "employment_letter",
+    "name": "Employment Verification Letter",
+    "category": "employment_letter",
+    "case_count": 61,
+    "avg_handling_time_minutes": 8,
+    "repeatability_pct": 98,
+    "score": {
+      "overall": 95,
+      "processConsistency": 97,
+      "repetition": 61,
+      "policyClarity": 95,
+      "dataAvailability": 96,
+      "exceptionRate": 3,
+      "penalties": [],
+      "recommendation": "strong"
+    },
+    "sample_cases": [
+      "HR-0074",
+      "HR-0078",
+      "HR-0082"
+    ]
+  },
+  {
+    "workflow_id": "address_update",
+    "name": "Address Update",
+    "category": "address_update",
+    "case_count": 48,
+    "avg_handling_time_minutes": 6,
+    "repeatability_pct": 99,
+    "score": {
+      "overall": 93,
+      "processConsistency": 98,
+      "repetition": 48,
+      "policyClarity": 95,
+      "dataAvailability": 96,
+      "exceptionRate": 1,
+      "penalties": [],
+      "recommendation": "strong"
+    },
+    "sample_cases": [
+      "HR-0120",
+      "HR-0121",
+      "HR-0122"
+    ]
+  },
+  {
+    "workflow_id": "leave_balance",
+    "name": "Leave Balance Inquiry",
+    "category": "leave_balance",
+    "case_count": 42,
+    "avg_handling_time_minutes": 5,
+    "repeatability_pct": 97,
+    "score": {
+      "overall": 91,
+      "processConsistency": 95,
+      "repetition": 42,
+      "policyClarity": 95,
+      "dataAvailability": 92,
+      "exceptionRate": 2,
+      "penalties": [],
+      "recommendation": "strong"
+    },
+    "sample_cases": [
+      "HR-0160",
+      "HR-0161",
+      "HR-0162"
+    ]
+  },
+  {
+    "workflow_id": "personal_info_update",
+    "name": "Personal Info Update",
+    "category": "personal_info_update",
+    "case_count": 35,
+    "avg_handling_time_minutes": 7,
+    "repeatability_pct": 96,
+    "score": {
+      "overall": 88,
+      "processConsistency": 92,
+      "repetition": 35,
+      "policyClarity": 90,
+      "dataAvailability": 88,
+      "exceptionRate": 4,
+      "penalties": [],
+      "recommendation": "strong"
+    },
+    "sample_cases": [
+      "HR-0200",
+      "HR-0201",
+      "HR-0202"
+    ]
+  },
+  {
+    "workflow_id": "payroll_document",
+    "name": "Payroll Document Request",
+    "category": "payroll_document",
+    "case_count": 28,
+    "avg_handling_time_minutes": 10,
+    "repeatability_pct": 94,
+    "score": {
+      "overall": 85,
+      "processConsistency": 88,
+      "repetition": 28,
+      "policyClarity": 85,
+      "dataAvailability": 85,
+      "exceptionRate": 6,
+      "penalties": [],
+      "recommendation": "strong"
+    },
+    "sample_cases": [
+      "HR-0240",
+      "HR-0241",
+      "HR-0242"
+    ]
+  },
+  {
+    "workflow_id": "onboarding_docs",
+    "name": "Onboarding Documents",
+    "category": "onboarding_docs",
+    "case_count": 24,
+    "avg_handling_time_minutes": 14,
+    "repeatability_pct": 88,
+    "score": {
+      "overall": 78,
+      "processConsistency": 80,
+      "repetition": 24,
+      "policyClarity": 75,
+      "dataAvailability": 70,
+      "exceptionRate": 12,
+      "penalties": [],
+      "recommendation": "moderate"
+    },
+    "sample_cases": [
+      "HR-0280",
+      "HR-0281",
+      "HR-0282"
+    ]
+  },
+  {
+    "workflow_id": "remote_work",
+    "name": "Remote Work Request",
+    "category": "remote_work",
+    "case_count": 39,
+    "avg_handling_time_minutes": 24,
+    "repeatability_pct": 63,
+    "score": {
+      "overall": 56,
+      "processConsistency": 60,
+      "repetition": 39,
+      "policyClarity": 50,
+      "dataAvailability": 60,
+      "exceptionRate": 35,
+      "penalties": [
+        "High human discretion",
+        "Policy ambiguity"
+      ],
+      "recommendation": "weak"
+    },
+    "sample_cases": [
+      "HR-0320",
+      "HR-0321",
+      "HR-0322"
+    ]
+  }
+]

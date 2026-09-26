@@ -1,0 +1,196 @@
+{
+  "workflow_id": "add_dependent",
+  "name": "Add Dependent to Insurance",
+  "total_cases": 73,
+  "main_path": {
+    "steps": [
+      {
+        "id": "receive_request",
+        "label": "Receive Employee Request",
+        "description": "Employee submits request to add dependent",
+        "case_count": 73
+      },
+      {
+        "id": "check_employee",
+        "label": "Check Employee Profile",
+        "description": "Verify employee status, type, and eligibility",
+        "case_count": 73
+      },
+      {
+        "id": "verify_event",
+        "label": "Verify Qualifying Event",
+        "description": "Confirm qualifying life event (marriage, birth, adoption)",
+        "case_count": 68
+      },
+      {
+        "id": "check_window",
+        "label": "Check Enrollment Window",
+        "description": "Verify request is within 30-day enrollment window",
+        "case_count": 61
+      },
+      {
+        "id": "request_document",
+        "label": "Request Documentation",
+        "description": "Request marriage certificate, birth certificate, or court order",
+        "case_count": 58
+      },
+      {
+        "id": "verify_document",
+        "label": "Verify Document",
+        "description": "Validate submitted documentation",
+        "case_count": 53
+      },
+      {
+        "id": "update_benefits",
+        "label": "Update Benefits System",
+        "description": "Process dependent addition in benefits system",
+        "case_count": 53
+      },
+      {
+        "id": "send_confirmation",
+        "label": "Send Confirmation",
+        "description": "Send confirmation to employee",
+        "case_count": 53
+      }
+    ],
+    "case_count": 53
+  },
+  "variants": [
+    {
+      "name": "Late Enrollment",
+      "trigger_condition": "Request submitted more than 30 days after qualifying event",
+      "steps": [
+        {
+          "id": "receive_request",
+          "label": "Receive Employee Request",
+          "description": "Employee submits late request",
+          "case_count": 12
+        },
+        {
+          "id": "check_employee",
+          "label": "Check Employee Profile",
+          "description": "Verify employee status",
+          "case_count": 12
+        },
+        {
+          "id": "verify_event",
+          "label": "Verify Qualifying Event",
+          "description": "Confirm event type",
+          "case_count": 12
+        },
+        {
+          "id": "check_window",
+          "label": "Check Enrollment Window",
+          "description": "Event date exceeds 30-day window",
+          "case_count": 12
+        },
+        {
+          "id": "escalate_benefits_ops",
+          "label": "Escalate to Benefits Operations",
+          "description": "Route to Benefits Ops for exception review",
+          "case_count": 7
+        },
+        {
+          "id": "approved_without_review",
+          "label": "Approved Without Review",
+          "description": "Approved despite policy requiring review (policy drift)",
+          "case_count": 5
+        }
+      ],
+      "case_count": 12
+    },
+    {
+      "name": "Missing Document",
+      "trigger_condition": "Required documentation not provided or incomplete",
+      "steps": [
+        {
+          "id": "receive_request",
+          "label": "Receive Employee Request",
+          "description": "Employee submits request",
+          "case_count": 5
+        },
+        {
+          "id": "check_employee",
+          "label": "Check Employee Profile",
+          "description": "Verify employee status",
+          "case_count": 5
+        },
+        {
+          "id": "request_document",
+          "label": "Request Documentation",
+          "description": "Request required certificate",
+          "case_count": 5
+        },
+        {
+          "id": "follow_up",
+          "label": "Follow Up on Document",
+          "description": "Multiple follow-ups sent to employee",
+          "case_count": 5
+        },
+        {
+          "id": "pending_resolution",
+          "label": "Pending Resolution",
+          "description": "Case remains pending awaiting documentation",
+          "case_count": 3
+        }
+      ],
+      "case_count": 5
+    },
+    {
+      "name": "Ineligible Employee",
+      "trigger_condition": "Employee is inactive, contractor, or intern",
+      "steps": [
+        {
+          "id": "receive_request",
+          "label": "Receive Employee Request",
+          "description": "Employee submits request",
+          "case_count": 7
+        },
+        {
+          "id": "check_employee",
+          "label": "Check Employee Profile",
+          "description": "Employee status/type check fails",
+          "case_count": 7
+        },
+        {
+          "id": "notify_ineligible",
+          "label": "Notify Ineligibility",
+          "description": "Inform employee of ineligibility",
+          "case_count": 4
+        },
+        {
+          "id": "escalate_hr",
+          "label": "Escalate to HR Manager",
+          "description": "Route to HR for review of special cases",
+          "case_count": 3
+        }
+      ],
+      "case_count": 7
+    },
+    {
+      "name": "Unsupported Location",
+      "trigger_condition": "Employee location is not in supported geography list",
+      "steps": [
+        {
+          "id": "receive_request",
+          "label": "Receive Employee Request",
+          "description": "Employee from unsupported location",
+          "case_count": 2
+        },
+        {
+          "id": "check_employee",
+          "label": "Check Employee Profile",
+          "description": "Location not in supported list",
+          "case_count": 2
+        },
+        {
+          "id": "escalate_international",
+          "label": "Escalate to International HR",
+          "description": "Route to international HR team",
+          "case_count": 2
+        }
+      ],
+      "case_count": 2
+    }
+  ]
+}

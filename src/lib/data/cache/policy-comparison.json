@@ -1,0 +1,64 @@
+{
+  "policy_id": "benefits_enrollment",
+  "workflow_id": "add_dependent",
+  "total_cases_analyzed": 73,
+  "overall_compliance_rate": 89,
+  "drifts": [
+    {
+      "policy_rule_id": "benefits_4.2_window",
+      "policy_text": "Dependents may be added within 30 days of a qualifying life event. Requests beyond 30 days require Benefits Operations exception review.",
+      "expected_behavior": "Requests after 30 days should be escalated for exception review",
+      "observed_behavior": "5 cases between days 31-45 were approved directly without recorded exception review",
+      "compliant_cases": 63,
+      "non_compliant_cases": 5,
+      "drift_severity": "high",
+      "details": "17% of late requests (5 out of 12 cases beyond 30 days) were approved without the required Benefits Operations exception review. This represents a significant policy drift that could expose the organization to compliance risk."
+    },
+    {
+      "policy_rule_id": "benefits_4.1_eligibility",
+      "policy_text": "Only active full-time employees are eligible for benefits enrollment.",
+      "expected_behavior": "Contractors, interns, and inactive employees should be rejected or escalated",
+      "observed_behavior": "All contractor and inactive employee requests were correctly escalated",
+      "compliant_cases": 73,
+      "non_compliant_cases": 0,
+      "drift_severity": "low",
+      "details": "No eligibility drift detected. All ineligible requests were properly escalated."
+    },
+    {
+      "policy_rule_id": "benefits_4.3_documentation",
+      "policy_text": "Required documentation (marriage certificate, birth certificate, or court order) must be verified before processing.",
+      "expected_behavior": "Dependent addition should not be processed without verified documentation",
+      "observed_behavior": "2 cases were processed with approval despite no document verification recorded",
+      "compliant_cases": 66,
+      "non_compliant_cases": 2,
+      "drift_severity": "medium",
+      "details": "2 cases show dependent addition was approved without documented verification of required certificates. This could indicate either incomplete case records or a documentation bypass."
+    }
+  ],
+  "time_buckets": [
+    {
+      "label": "Within 30 days",
+      "range": "≤ 30 days",
+      "total": 58,
+      "approved": 53,
+      "escalated": 3,
+      "rejected": 2
+    },
+    {
+      "label": "31-45 days",
+      "range": "31-45 days",
+      "total": 8,
+      "approved": 5,
+      "escalated": 3,
+      "rejected": 0
+    },
+    {
+      "label": "Over 45 days",
+      "range": "> 45 days",
+      "total": 7,
+      "approved": 0,
+      "escalated": 7,
+      "rejected": 0
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "workflow_id": "add_dependent",
+  "name": "Add Dependent to Insurance",
+  "description": "Automated workflow for processing dependent addition requests based on qualifying life events",
+  "trigger": "employee_requests_dependent_addition",
+  "steps": [
+    {
+      "id": "check_employee_status",
+      "type": "condition",
+      "label": "Check Employee Status",
+      "field": "employee_status",
+      "operator": "equals",
+      "value": "active",
+      "on_true": "check_employee_type",
+      "on_false": "human_review_status",
+      "evidence": {
+        "source": "Benefits Policy §4.1",
+        "policy_reference": "benefits_4.1_eligibility",
+        "historical_support": 66,
+        "historical_total": 73,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "check_employee_type",
+      "type": "condition",
+      "label": "Check Employee Type",
+      "field": "employee_type",
+      "operator": "equals",
+      "value": "full_time",
+      "on_true": "check_qualifying_event",
+      "on_false": "human_review_type",
+      "evidence": {
+        "source": "Benefits Policy §4.1",
+        "policy_reference": "benefits_4.1_eligibility",
+        "historical_support": 62,
+        "historical_total": 66,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "check_qualifying_event",
+      "type": "condition",
+      "label": "Verify Qualifying Event",
+      "field": "qualifying_event",
+      "operator": "in",
+      "value": "marriage,birth,adoption,legal_guardianship",
+      "on_true": "check_enrollment_window",
+      "on_false": "human_review_event",
+      "evidence": {
+        "source": "Benefits Policy §4.2",
+        "policy_reference": "benefits_4.2_window",
+        "historical_support": 62,
+        "historical_total": 62,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "check_enrollment_window",
+      "type": "condition",
+      "label": "Check 30-Day Window",
+      "field": "days_since_event",
+      "operator": "lte",
+      "value": 30,
+      "on_true": "check_location",
+      "on_false": "escalate_benefits_ops",
+      "evidence": {
+        "source": "Benefits Policy §4.2",
+        "policy_reference": "benefits_4.2_window",
+        "historical_support": 53,
+        "historical_total": 62,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "check_location",
+      "type": "condition",
+      "label": "Check Supported Geography",
+      "field": "location",
+      "operator": "in",
+      "value": "US,India,UK,Germany,Singapore",
+      "on_true": "request_certificate",
+      "on_false": "escalate_international",
+      "evidence": {
+        "source": "Benefits Policy §4.4",
+        "policy_reference": "benefits_4.4_geography",
+        "historical_support": 51,
+        "historical_total": 53,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "request_certificate",
+      "type": "request_document",
+      "label": "Request Certificate",
+      "next": "validate_document",
+      "evidence": {
+        "source": "Benefits Policy §4.3",
+        "policy_reference": "benefits_4.3_documentation",
+        "historical_support": 51,
+        "historical_total": 51,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "validate_document",
+      "type": "action",
+      "label": "Validate Document",
+      "next": "prepare_change",
+      "evidence": {
+        "source": "Benefits Policy §4.3",
+        "historical_support": 49,
+        "historical_total": 51,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "prepare_change",
+      "type": "system_action",
+      "label": "Prepare Dependent Addition",
+      "next": "send_confirmation",
+      "evidence": {
+        "source": "Historical practice",
+        "historical_support": 49,
+        "historical_total": 49,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "send_confirmation",
+      "type": "action",
+      "label": "Send Confirmation to Employee",
+      "evidence": {
+        "source": "Historical practice",
+        "historical_support": 49,
+        "historical_total": 49,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "escalate_benefits_ops",
+      "type": "human_review",
+      "label": "Escalate to Benefits Operations",
+      "evidence": {
+        "source": "Benefits Policy §4.2",
+        "policy_reference": "benefits_4.2_window",
+        "historical_support": 7,
+        "historical_total": 12,
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "escalate_international",
+      "type": "human_review",
+      "label": "Escalate to International HR",
+      "evidence": {
+        "source": "Benefits Policy §4.4",
+        "historical_support": 2,
+        "historical_total": 2,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "human_review_status",
+      "type": "human_review",
+      "label": "Human Review — Inactive Employee",
+      "evidence": {
+        "source": "Benefits Policy §4.1",
+        "historical_support": 3,
+        "historical_total": 3,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "human_review_type",
+      "type": "human_review",
+      "label": "Human Review — Non Full-Time",
+      "evidence": {
+        "source": "Benefits Policy §4.1",
+        "historical_support": 4,
+        "historical_total": 4,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "human_review_event",
+      "type": "human_review",
+      "label": "Human Review — Unrecognized Event",
+      "evidence": {
+        "source": "Benefits Policy §4.2",
+        "historical_support": 0,
+        "historical_total": 0,
+        "confidence": "low"
+      }
+    }
+  ],
+  "created_at": "2026-09-26T12:00:00Z"
+}

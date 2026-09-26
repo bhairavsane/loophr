@@ -268,10 +268,7 @@ const allCases = [
   ...onboardingDocsCases
 ];
 
-const tsFileContent = \`import type { HRCase } from '@/lib/types';
-
-export const seedCases: HRCase[] = \${JSON.stringify(allCases, null, 2)};
-\`;
+const tsFileContent = "import type { HRCase } from '@/lib/types';\n\nexport const seedCases: HRCase[] = " + JSON.stringify(allCases, null, 2) + ";\n";
 
 const fsObj = require('fs');
 const path = require('path');
