@@ -79,7 +79,7 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
         <div className="max-w-6xl mx-auto flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-semibold mb-2 flex items-center gap-3">
-              Historical Simulation & Audit
+              Historical Audit
               <span className="text-sm px-3 py-1 bg-[var(--bg-elevated)] border border-[var(--border)] rounded-full text-[var(--text-secondary)]">
                 {totalCases} cases
               </span>
