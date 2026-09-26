@@ -294,7 +294,7 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
               >
                 <Link 
                   href="/live"
-                  className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-8 py-3.5 rounded-full font-medium hover:bg-white transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-8 py-3.5 rounded-full font-medium hover:opacity-90 transition-all hover:scale-105 shadow-lg"
                 >
                   Try Live Case
                   <ArrowRight size={18} />

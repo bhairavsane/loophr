@@ -428,7 +428,7 @@ export default function ReviewPage({ params }: { params: Promise<{ workflowId: s
         <div className="mt-6 flex justify-end">
           <Link 
             href={`/replay/${workflowId}`}
-            className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-6 py-2.5 rounded-lg font-medium hover:bg-white transition-colors"
+            className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity"
           >
             Run Historical Replay
             <ArrowRight size={18} />
