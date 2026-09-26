@@ -5,7 +5,6 @@ import { AppShell } from '@/components/layout/app-shell';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Brain,
   User,
   Building2,
   MapPin,
@@ -133,10 +132,6 @@ export default function LiveCasePage() {
               Process unstructured employee requests through the validated automation policy engine.
             </p>
           </div>
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 text-sm font-medium">
-            <Brain className="w-4 h-4" />
-            AI-Powered
-          </div>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -248,10 +243,7 @@ export default function LiveCasePage() {
                       exit={{ opacity: 0 }}
                       className="flex flex-col items-center justify-center h-full text-[var(--text-secondary)] space-y-4 pt-12"
                     >
-                      <div className="relative">
-                        <div className="w-12 h-12 rounded-full border-2 border-[var(--border)] border-t-[var(--accent)] animate-spin" />
-                        <Brain className="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[var(--accent)]" />
-                      </div>
+                      <Loader2 className="w-10 h-10 text-[var(--accent)] animate-spin" />
                       <p className="animate-pulse">Analyzing context & policies...</p>
                     </motion.div>
                   ) : error ? (
@@ -393,7 +385,7 @@ export default function LiveCasePage() {
                     </motion.div>
                   ) : (
                     <div className="flex flex-col items-center justify-center h-full text-[var(--text-muted)] space-y-4 pt-12">
-                      <Brain className="w-12 h-12 opacity-20" />
+                      <Zap className="w-12 h-12 opacity-20" />
                       <p>Enter an employee request to analyze policies</p>
                     </div>
                   )}
