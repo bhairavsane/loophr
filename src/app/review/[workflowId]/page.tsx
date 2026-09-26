@@ -177,10 +177,10 @@ export default function ReviewPage({ params }: { params: Promise<{ workflowId: s
 
   return (
     <AppShell>
-      <div className="flex flex-col h-[calc(100vh-4rem)] p-6 bg-[var(--bg)] text-[var(--text-primary)]">
+      <div className="flex flex-col h-[calc(100vh-48px)] bg-[var(--bg)] text-[var(--text-primary)] rounded-xl border border-[var(--border)] overflow-hidden">
         
         {/* Header & Tabs */}
-        <div className="mb-6 flex items-center justify-between">
+        <div className="px-6 py-4 border-b border-[var(--border)] bg-[var(--bg-surface)] flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-2xl font-semibold mb-1">Policy Reconciliation: {workflowData?.name || 'Workflow'}</h1>
             <p className="text-[var(--text-secondary)] text-sm">Auditing proposed automation logic against active corporate policies for compliance.</p>

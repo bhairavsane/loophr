@@ -140,7 +140,7 @@ export default function ProcessPage({ params }: { params: Promise<{ workflowId: 
 
   return (
     <AppShell>
-      <div className="flex flex-col h-full bg-[var(--bg)]">
+      <div className="flex flex-col h-[calc(100vh-48px)] bg-[var(--bg)] rounded-xl border border-[var(--border)] overflow-hidden">
         {/* Header */}
         <header className="border-b border-[var(--border)] bg-[var(--bg-surface)] px-6 py-4 flex items-center justify-between shrink-0">
           <div>
