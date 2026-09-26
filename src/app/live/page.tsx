@@ -56,7 +56,7 @@ type LiveCaseResult = {
   documents_needed: string[];
   recommended_action: string;
   escalation_required: boolean;
-  escalation_reason?: string;
+  escalation_reason: string;
   confidence: number;
 };
 
@@ -73,6 +73,7 @@ const mockResponse: LiveCaseResult = {
   documents_needed: ['Marriage certificate'],
   recommended_action: 'Approve dependent addition. Request marriage certificate for verification.',
   escalation_required: false,
+  escalation_reason: '',
   confidence: 0.95,
 };
 
@@ -354,7 +355,7 @@ export default function LiveCasePage() {
                               result.escalation_required ? "text-[var(--warning)]" : "text-[var(--success)]"
                             )}>
                               {result.recommended_action}
-                              {result.escalation_reason && (
+                              {result.escalation_reason.trim() !== '' && (
                                 <span className="block mt-1 font-medium">
                                   Reason: {result.escalation_reason}
                                 </span>

@@ -29,7 +29,7 @@ const LiveCaseResultSchema = z.object({
   documents_needed: z.array(z.string()),
   recommended_action: z.string(),
   escalation_required: z.boolean(),
-  escalation_reason: z.string().optional(),
+  escalation_reason: z.string().describe("Provide reason if escalated, otherwise empty string"),
   confidence: z.number().min(0).max(1),
 });
 
