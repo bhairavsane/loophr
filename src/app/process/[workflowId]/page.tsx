@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { AppShell } from '@/components/layout/app-shell';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Users, ChevronRight } from 'lucide-react';
+import { ArrowRight, Users, ChevronRight, Radio } from 'lucide-react';
 import Link from 'next/link';
 import { 
   ReactFlow, 
@@ -70,7 +70,15 @@ export default function ProcessPage({ params }: { params: Promise<{ workflowId: 
   const [activeTab, setActiveTab] = useState<string>('main');
   const [activeView, setActiveView] = useState<'process' | 'proposed'>('process');
   const [isDeployModalOpen, setIsDeployModalOpen] = useState(false);
+  const [isDeployed, setIsDeployed] = useState(false);
   const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    const check = () => setIsDeployed(localStorage.getItem('loophr_deployed') === 'true');
+    check();
+    window.addEventListener('loophr_deployed', check);
+    return () => window.removeEventListener('loophr_deployed', check);
+  }, []);
 
   const { initialNodes, initialEdges } = useMemo(() => {
     const nodes: Node[] = [];
@@ -158,6 +166,15 @@ export default function ProcessPage({ params }: { params: Promise<{ workflowId: 
               <h1 className="text-xl font-semibold text-[var(--text-primary)]">
                 Process Architecture: {processData.name}
               </h1>
+              {isDeployed && (
+                <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[rgba(34,197,94,0.12)] border border-[rgba(34,197,94,0.3)] text-[var(--success)] text-xs font-semibold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--success)] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--success)]" />
+                  </span>
+                  Status: Live on SAP SuccessFactors
+                </span>
+              )}
             </div>
             <p className="text-sm text-[var(--text-secondary)] flex items-center gap-2">
               Empirically Reconstructed

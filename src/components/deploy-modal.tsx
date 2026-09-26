@@ -9,7 +9,12 @@ export function DeployModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
     if (isOpen) {
       setStatus('connecting');
       setTimeout(() => setStatus('deploying'), 1500);
-      setTimeout(() => setStatus('success'), 3500);
+      setTimeout(() => {
+        setStatus('success');
+        // Persist deployed state so other pages can react
+        localStorage.setItem('loophr_deployed', 'true');
+        window.dispatchEvent(new Event('loophr_deployed'));
+      }, 3500);
     }
   }, [isOpen]);
 
@@ -73,7 +78,7 @@ export function DeployModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
                   onClick={onClose}
                   className="w-full py-2.5 bg-[var(--text-primary)] text-[var(--bg)] rounded-lg font-medium hover:opacity-90 transition-opacity mt-4"
                 >
-                  Return to Dashboard
+                  Close
                 </button>
               </>
             )}

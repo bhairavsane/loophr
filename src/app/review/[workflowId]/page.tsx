@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { AppShell } from '@/components/layout/app-shell';
 import { cn } from '@/lib/utils';
@@ -14,7 +14,8 @@ import {
   ShieldAlert,
   GitBranch,
   Settings,
-  UserCheck
+  UserCheck,
+  Lock
 } from 'lucide-react';
 
 // Using unknown to bypass import errors if file doesn't exist during compilation
@@ -33,14 +34,33 @@ import { use } from 'react';
 export default function ReviewPage({ params }: { params: Promise<{ workflowId: string }> }) {
   const resolvedParams = use(params);
   const workflowId = resolvedParams.workflowId;
-    
-  
+  const [isDeployed, setIsDeployed] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsDeployed(localStorage.getItem('loophr_deployed') === 'true');
+    check();
+    window.addEventListener('loophr_deployed', check);
+    return () => window.removeEventListener('loophr_deployed', check);
+  }, []);
 
   return (
     <AppShell>
       <div className="flex flex-col h-[calc(100vh-48px)] bg-[var(--bg)] text-[var(--text-primary)] rounded-xl border border-[var(--border)] overflow-hidden">
         
-        {/* Header & Tabs */}
+        {/* Read-Only production banner */}
+        {isDeployed && (
+          <div className="flex items-center gap-3 px-6 py-2.5 bg-[rgba(34,197,94,0.08)] border-b border-[rgba(34,197,94,0.25)] text-[var(--success)] text-sm font-medium shrink-0">
+            <Lock size={14} className="shrink-0" />
+            <span>Read-Only: This workflow is actively deployed in production.</span>
+            <span className="ml-auto flex items-center gap-1.5 text-xs opacity-70">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--success)] opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--success)]" />
+              </span>
+              Live on SAP SuccessFactors
+            </span>
+          </div>
+        )}
         <div className="px-6 py-4 border-b border-[var(--border)] bg-[var(--bg-surface)] flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-2xl font-semibold mb-1">Policy Reconciliation: {workflowData?.name || 'Workflow'}</h1>

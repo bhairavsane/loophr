@@ -120,6 +120,7 @@ export function ProposedAutomation() {
           source: step.id,
           target: step.next,
           type: 'smoothstep',
+          animated: true,
           style: { stroke: 'var(--border-strong)', strokeWidth: 2 },
           markerEnd: { type: MarkerType.ArrowClosed, color: 'var(--border-strong)' },
         });
@@ -132,6 +133,7 @@ export function ProposedAutomation() {
           target: step.on_true,
           label: 'Yes',
           type: 'smoothstep',
+          animated: true,
           style: { stroke: 'var(--success)', strokeWidth: 2 },
           labelBgStyle: { fill: 'var(--bg-surface)' },
           labelStyle: { fill: 'var(--success)', fontWeight: 600 },
@@ -146,6 +148,7 @@ export function ProposedAutomation() {
           target: step.on_false,
           label: 'No',
           type: 'step',
+          animated: true,
           style: { stroke: 'var(--error)', strokeWidth: 2 },
           labelBgStyle: { fill: 'var(--bg-surface)' },
           labelStyle: { fill: 'var(--error)', fontWeight: 600 },
