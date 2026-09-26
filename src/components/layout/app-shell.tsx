@@ -4,23 +4,24 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Search,
-  GitBranch,
-  PlayCircle,
+  Workflow,
+  ShieldCheck,
+  History,
   MessageSquare,
-  ChevronRight,
 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/discover', label: 'Discover', icon: Search, step: 1 },
-  { href: '/process/add_dependent', label: 'Process', icon: GitBranch, step: 2 },
-  { href: '/review/add_dependent', label: 'Review', icon: ChevronRight, step: 3 },
-  { href: '/replay/add_dependent', label: 'Replay', icon: PlayCircle, step: 4 },
+  { href: '/process/add_dependent', label: 'Process', icon: Workflow, step: 2 },
+  { href: '/review/add_dependent', label: 'Review', icon: ShieldCheck, step: 3 },
+  { href: '/replay/add_dependent', label: 'Replay', icon: History, step: 4 },
   { href: '/live', label: 'Live Case', icon: MessageSquare, step: 5 },
 ];
 
 import Image from 'next/image';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -77,7 +78,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </nav>
 
         {/* Footer */}
-        <div className="border-t border-[var(--border)] p-3">
+        <div className="border-t border-[var(--border)] p-3 flex flex-col gap-4">
+          <ThemeToggle />
           <p className="text-[11px] text-[var(--text-muted)]">
             Discover → Reconstruct → Replay → Automate
           </p>

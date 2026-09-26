@@ -10,11 +10,20 @@ export const metadata: Metadata = {
     'AI that learns repetitive HR workflows from historical cases and backtests the automation against those same real-world cases before HR deploys it.',
 };
 
+import { ThemeProvider } from '@/components/theme-provider';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

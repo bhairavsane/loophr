@@ -7,9 +7,10 @@ import {
   CheckCircle2, 
   Clock, 
   ArrowRight,
-  TrendingUp,
+  Cpu,
   AlertTriangle,
-  CheckCircle
+  CheckCircle,
+  Loader2
 } from 'lucide-react';
 import Link from 'next/link';
 import { AppShell } from '@/components/layout/app-shell';
@@ -38,11 +39,11 @@ type DiscoveredWorkflow = {
 };
 
 const ANALYSIS_STEPS = [
-  { id: 1, text: 'Request types identified', delay: 300 },
-  { id: 2, text: 'Similar cases clustered', delay: 600 },
-  { id: 3, text: 'Repeated actions reconstructed', delay: 900 },
-  { id: 4, text: 'Resolution patterns analyzed', delay: 1200 },
-  { id: 5, text: 'Automation opportunities scored', delay: 1500 },
+  { id: 1, text: 'Parsing historical HR cases (350 records found)...', delay: 800 },
+  { id: 2, text: 'Running batch inference to extract case intent and categories...', delay: 2800 },
+  { id: 3, text: 'Reconstructing step-by-step process variants using AI...', delay: 5400 },
+  { id: 4, text: 'Cross-referencing observed behavior against formal HR policy...', delay: 7800 },
+  { id: 5, text: 'Scoring automation potential and generating workflow structures...', delay: 9500 },
 ];
 
 export default function DiscoverPage() {
@@ -83,10 +84,10 @@ export default function DiscoverPage() {
         {/* Header Section */}
         <header className="mb-10">
           <h1 className="text-3xl font-semibold text-[var(--text-primary)] mb-2">
-            What should HR stop doing manually?
+            Workflow Discovery Intelligence
           </h1>
           <p className="text-[var(--text-secondary)] text-lg">
-            Analyzing historical data to identify repetitive tasks.
+            Analyzing historical datasets to identify high-ROI automation candidates.
           </p>
         </header>
 
@@ -140,36 +141,57 @@ export default function DiscoverPage() {
 
           <div className="border border-[var(--border)] rounded-xl p-6 bg-[var(--bg-surface)] flex flex-col justify-center">
             <h3 className="text-[var(--text-primary)] font-medium mb-4 flex items-center gap-2">
-              <TrendingUp className="h-4 w-4 text-[var(--accent)]" />
+              <Cpu className="h-4 w-4 text-[var(--accent)]" />
               Analysis Progress
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {ANALYSIS_STEPS.map((step) => {
                 const isComplete = completedSteps.includes(step.id);
+                const isCurrent = file && !isUploading && !isComplete && completedSteps.length + 1 === step.id;
+                const isPending = !file || isUploading || (!isComplete && !isCurrent);
+
+                if (isPending) {
+                  return (
+                    <div key={step.id} className="flex items-center gap-3 opacity-30">
+                      <div className="h-5 w-5 rounded-full border border-[var(--border-strong)] flex items-center justify-center">
+                        <div className="h-1.5 w-1.5 rounded-full bg-[var(--border-strong)]" />
+                      </div>
+                      <span className="text-sm text-[var(--text-muted)]">
+                        {step.text}
+                      </span>
+                    </div>
+                  );
+                }
+
                 return (
-                  <div key={step.id} className="flex items-center gap-3">
+                  <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    key={step.id} 
+                    className="flex items-center gap-3"
+                  >
                     {isComplete ? (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="h-5 w-5 rounded-full bg-[var(--success-muted)] flex items-center justify-center"
+                        className="h-5 w-5 rounded-full bg-[var(--success-muted)] flex items-center justify-center shrink-0"
                       >
                         <CheckCircle2 className="h-3.5 w-3.5 text-[var(--success)]" />
                       </motion.div>
                     ) : (
-                      <div className="h-5 w-5 rounded-full border border-[var(--border-strong)] flex items-center justify-center">
-                        <div className="h-1.5 w-1.5 rounded-full bg-[var(--border-strong)]" />
+                      <div className="h-5 w-5 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0">
+                        <Loader2 className="h-3.5 w-3.5 text-[var(--accent)] animate-spin" />
                       </div>
                     )}
                     <span
                       className={cn(
                         'text-sm transition-colors duration-300',
-                        isComplete ? 'text-[var(--text-primary)]' : 'text-[var(--text-muted)]'
+                        isComplete ? 'text-[var(--text-primary)]' : 'text-[var(--accent)] font-medium'
                       )}
                     >
                       {step.text}
                     </span>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -188,10 +210,10 @@ export default function DiscoverPage() {
                 <div className="flex items-center gap-3 text-sm font-medium text-[var(--text-secondary)]">
                   <span className="flex items-center gap-1.5 text-[var(--text-primary)]">
                     <CheckCircle className="h-4 w-4 text-[var(--success)]" />
-                    8 repetitive workflows discovered
+                    8 high-viability automation candidates identified
                   </span>
                   <span>·</span>
-                  <span>Estimated 450+ hours/year of repetitive work</span>
+                  <span>Estimated 450+ hours/year of recovered capacity</span>
                 </div>
               </div>
 
@@ -203,6 +225,13 @@ export default function DiscoverPage() {
                     moderate: 'bg-[var(--warning-muted)] text-[var(--warning)]',
                     weak: 'bg-[var(--error-muted)] text-[var(--error)]',
                     not_recommended: 'bg-[var(--bg-elevated)] text-[var(--text-muted)]'
+                  };
+                  
+                  const recommendationLabels: Record<string, string> = {
+                    strong: 'High Viability',
+                    moderate: 'Moderate Viability',
+                    weak: 'Low Viability',
+                    not_recommended: 'Not Recommended'
                   };
 
                   return (
@@ -253,7 +282,7 @@ export default function DiscoverPage() {
                             'text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-md',
                             recommendationColors[workflow.score.recommendation]
                           )}>
-                            {workflow.score.recommendation.replace('_', ' ')}
+                            {recommendationLabels[workflow.score.recommendation]}
                           </span>
                         </div>
 

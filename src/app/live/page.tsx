@@ -126,10 +126,10 @@ export default function LiveCasePage() {
         <header className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-semibold text-[var(--text-primary)]">
-              Live Employee Case
+              Live Execution Environment
             </h1>
             <p className="text-[var(--text-secondary)] mt-1">
-              Process natural language employee requests using the HR policy engine.
+              Process unstructured employee requests through the validated automation policy engine.
             </p>
           </div>
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 text-sm font-medium">

@@ -150,14 +150,14 @@ export default function ProcessPage({ params }: { params: Promise<{ workflowId: 
               </Link>
               <ChevronRight className="h-4 w-4 text-[var(--border-strong)]" />
               <h1 className="text-xl font-semibold text-[var(--text-primary)]">
-                {processData.name}
+                Process Architecture: {processData.name}
               </h1>
             </div>
             <p className="text-sm text-[var(--text-secondary)] flex items-center gap-2">
-              Process Reconstruction
+              Empirically Reconstructed
               <span className="px-2 py-0.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--border)] text-xs flex items-center gap-1.5 text-[var(--text-primary)]">
                 <Users className="h-3 w-3 text-[var(--accent)]" />
-                {processData.total_cases} historical cases
+                {processData.total_cases} historical case executions
               </span>
             </p>
           </div>

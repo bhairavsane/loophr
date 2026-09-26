@@ -63,34 +63,34 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
 
   const getClassificationStyles = (type: string) => {
     switch(type) {
-      case 'match': return { color: 'text-[#22c55e]', bg: 'bg-[rgba(34,197,94,0.15)]', icon: CheckCircle2, label: 'Match' };
-      case 'correct_escalation': return { color: 'text-[#3b82f6]', bg: 'bg-[rgba(59,130,246,0.15)]', icon: ArrowRightCircle, label: 'Correct Escalation' };
-      case 'policy_drift': return { color: 'text-[#eab308]', bg: 'bg-[rgba(234,179,8,0.15)]', icon: AlertTriangle, label: 'Policy Drift' };
-      case 'automation_mismatch': return { color: 'text-[#ef4444]', bg: 'bg-[rgba(239,68,68,0.15)]', icon: XCircle, label: 'Automation Mismatch' };
-      default: return { color: 'text-[#a1a1a1]', bg: 'bg-[#262626]', icon: HelpCircle, label: 'Unknown' };
+      case 'match': return { color: 'text-[var(--success)]', bg: 'bg-[rgba(34,197,94,0.15)]', icon: CheckCircle2, label: 'Match' };
+      case 'correct_escalation': return { color: 'text-[var(--accent)]', bg: 'bg-[rgba(59,130,246,0.15)]', icon: ArrowRightCircle, label: 'Correct Escalation' };
+      case 'policy_drift': return { color: 'text-[var(--warning)]', bg: 'bg-[rgba(234,179,8,0.15)]', icon: AlertTriangle, label: 'Policy Drift' };
+      case 'automation_mismatch': return { color: 'text-[var(--error)]', bg: 'bg-[rgba(239,68,68,0.15)]', icon: XCircle, label: 'Automation Mismatch' };
+      default: return { color: 'text-[var(--text-secondary)]', bg: 'bg-[var(--border)]', icon: HelpCircle, label: 'Unknown' };
     }
   };
 
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#0a0a0a] text-[#ededed] p-6 pb-24">
+      <div className="min-h-screen bg-[var(--bg)] text-[var(--text-primary)] p-6 pb-24">
         
         {/* Header */}
         <div className="max-w-6xl mx-auto flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-semibold mb-2 flex items-center gap-3">
-              Historical Replay
-              <span className="text-sm px-3 py-1 bg-[#1a1a1a] border border-[#262626] rounded-full text-[#a1a1a1]">
+              Historical Simulation & Audit
+              <span className="text-sm px-3 py-1 bg-[var(--bg-elevated)] border border-[var(--border)] rounded-full text-[var(--text-secondary)]">
                 {totalCases} cases
               </span>
             </h1>
-            <p className="text-[#a1a1a1]">Testing workflow &quot;{replayData?.workflow_name}&quot; against historical decisions.</p>
+            <p className="text-[var(--text-secondary)]">Executing proposed automation &quot;{replayData?.workflow_name}&quot; against historical dataset to measure compliance and safe coverage.</p>
           </div>
           
           {!isReplaying && !hasReplayed && (
             <button
               onClick={handleStartReplay}
-              className="flex items-center gap-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+              className="flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-[0_0_15px_rgba(59,130,246,0.3)]"
             >
               <Play size={18} fill="currentColor" />
               Replay on {totalCases} historical cases
@@ -98,9 +98,9 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
           )}
           
           {isReplaying && (
-            <div className="flex items-center gap-4 bg-[#1a1a1a] border border-[#262626] px-6 py-3 rounded-lg">
-              <div className="w-4 h-4 rounded-full border-2 border-[#3b82f6] border-t-transparent animate-spin" />
-              <span className="font-mono text-sm text-[#3b82f6]">Replaying... {replayProgress}/{totalCases}</span>
+            <div className="flex items-center gap-4 bg-[var(--bg-elevated)] border border-[var(--border)] px-6 py-3 rounded-lg">
+              <div className="w-4 h-4 rounded-full border-2 border-[var(--accent)] border-t-transparent animate-spin" />
+              <span className="font-mono text-sm text-[var(--accent)]">Replaying... {replayProgress}/{totalCases}</span>
             </div>
           )}
         </div>
@@ -113,16 +113,16 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-[#111111] border border-[#262626] p-8 rounded-2xl relative overflow-hidden"
+                className="bg-[var(--bg-surface)] border border-[var(--border)] p-8 rounded-2xl relative overflow-hidden"
               >
                 {/* Decorative background glow */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#3b82f6] opacity-5 blur-[100px] rounded-full" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent)] opacity-5 blur-[100px] rounded-full" />
                 
                 <h2 className="text-xl font-medium mb-6">Recommended autonomous coverage</h2>
                 
-                <div className="relative h-12 bg-[#1a1a1a] rounded-full overflow-hidden border border-[#262626] mb-4">
+                <div className="relative h-12 bg-[var(--bg-elevated)] rounded-full overflow-hidden border border-[var(--border)] mb-4">
                   <motion.div 
-                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#22c55e] to-[#3b82f6]"
+                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-[var(--success)] to-[var(--accent)]"
                     initial={{ width: 0 }}
                     animate={{ width: `${replayData?.safe_coverage_pct || 0}%` }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
@@ -133,8 +133,8 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
                   </div>
                 </div>
                 
-                <p className="text-[#a1a1a1] text-sm">
-                  LoopHR recommends keeping <strong className="text-[#ededed]">{replayData?.human_review_pct}%</strong> of cases human-led due to policy drift and complexity.
+                <p className="text-[var(--text-secondary)] text-sm">
+                  LoopHR recommends keeping <strong className="text-[var(--text-primary)]">{replayData?.human_review_pct}%</strong> of cases human-led due to policy drift and complexity.
                 </p>
               </motion.div>
             )}
@@ -150,11 +150,11 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
                 className="grid grid-cols-5 gap-4"
               >
                 {[
-                  { key: 'match', label: 'Match', count: replayData?.match, color: '#22c55e' },
-                  { key: 'correct_escalation', label: 'Correct Escalation', count: replayData?.correct_escalation, color: '#3b82f6' },
-                  { key: 'policy_drift', label: 'Policy Drift', count: replayData?.policy_drift, color: '#eab308' },
-                  { key: 'automation_mismatch', label: 'Auto Mismatch', count: replayData?.automation_mismatch, color: '#ef4444' },
-                  { key: 'unknown', label: 'Unknown', count: replayData?.unknown, color: '#a1a1a1' },
+                  { key: 'match', label: 'Match', count: replayData?.match, color: 'var(--success)' },
+                  { key: 'correct_escalation', label: 'Correct Escalation', count: replayData?.correct_escalation, color: 'var(--accent)' },
+                  { key: 'policy_drift', label: 'Policy Drift', count: replayData?.policy_drift, color: 'var(--warning)' },
+                  { key: 'automation_mismatch', label: 'Auto Mismatch', count: replayData?.automation_mismatch, color: 'var(--error)' },
+                  { key: 'unknown', label: 'Unknown', count: replayData?.unknown, color: 'var(--text-secondary)' },
                 ].map((stat) => (
                   <button 
                     key={stat.key}
@@ -163,11 +163,11 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
                       "p-4 rounded-xl border text-left transition-all",
                       activeFilter === stat.key 
                         ? `bg-[${stat.color}15] border-[${stat.color}50]` 
-                        : "bg-[#111111] border-[#262626] hover:bg-[#1a1a1a]"
+                        : "bg-[var(--bg-surface)] border-[var(--border)] hover:bg-[var(--bg-elevated)]"
                     )}
                   >
                     <div className="text-3xl font-light mb-1" style={{ color: stat.color }}>{stat.count}</div>
-                    <div className="text-xs font-medium text-[#a1a1a1] uppercase tracking-wider">{stat.label}</div>
+                    <div className="text-xs font-medium text-[var(--text-secondary)] uppercase tracking-wider">{stat.label}</div>
                   </button>
                 ))}
               </motion.div>
@@ -176,11 +176,11 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
 
           {/* Replay Runner / Table */}
           {(isReplaying || hasReplayed) && (
-            <div className="bg-[#111111] border border-[#262626] rounded-xl overflow-hidden">
+            <div className="bg-[var(--bg-surface)] border border-[var(--border)] rounded-xl overflow-hidden">
               
               {hasReplayed && (
-                <div className="p-4 border-b border-[#262626] flex items-center gap-2">
-                  <span className="text-sm text-[#a1a1a1] mr-2">Filter:</span>
+                <div className="p-4 border-b border-[var(--border)] flex items-center gap-2">
+                  <span className="text-sm text-[var(--text-secondary)] mr-2">Filter:</span>
                   {['all', 'match', 'correct_escalation', 'policy_drift', 'automation_mismatch'].map(filterKey => (
                     <button
                       key={filterKey}
@@ -188,8 +188,8 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
                       className={cn(
                         "px-3 py-1.5 rounded-full text-xs font-medium transition-colors capitalize",
                         activeFilter === filterKey 
-                          ? "bg-[#333333] text-[#ededed]" 
-                          : "bg-transparent text-[#666666] hover:text-[#a1a1a1]"
+                          ? "bg-[var(--border-strong)] text-[var(--text-primary)]" 
+                          : "bg-transparent text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                       )}
                     >
                       {filterKey.replace('_', ' ')}
@@ -200,7 +200,7 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="text-xs text-[#a1a1a1] uppercase bg-[#1a1a1a] border-b border-[#262626]">
+                  <thead className="text-xs text-[var(--text-secondary)] uppercase bg-[var(--bg-elevated)] border-b border-[var(--border)]">
                     <tr>
                       <th className="px-6 py-4 font-medium">Case ID</th>
                       <th className="px-6 py-4 font-medium">Classification</th>
@@ -221,13 +221,13 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
                             <motion.tr 
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
-                              className="border-b border-[#262626] last:border-0 hover:bg-[#1a1a1a] cursor-pointer"
+                              className="border-b border-[var(--border)] last:border-0 hover:bg-[var(--bg-elevated)] cursor-pointer"
                               onClick={() => setExpandedRow(isExpanded ? null : result.case_id)}
                             >
-                              <td className="px-6 py-4 font-mono text-[#ededed]">
+                              <td className="px-6 py-4 font-mono text-[var(--text-primary)]">
                                 {result.case_id}
                                 {isReplaying && idx === visibleResults.length - 1 && (
-                                  <span className="ml-2 inline-block w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse" />
+                                  <span className="ml-2 inline-block w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
                                 )}
                               </td>
                               <td className="px-6 py-4">
@@ -236,31 +236,31 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
                                   {style.label}
                                 </div>
                               </td>
-                              <td className="px-6 py-4 text-[#a1a1a1]">{result.historical_outcome}</td>
-                              <td className="px-6 py-4 text-[#ededed] font-medium">{result.automation_outcome}</td>
+                              <td className="px-6 py-4 text-[var(--text-secondary)]">{result.historical_outcome}</td>
+                              <td className="px-6 py-4 text-[var(--text-primary)] font-medium">{result.automation_outcome}</td>
                               <td className="px-6 py-4 text-right">
-                                {isExpanded ? <ChevronUp size={16} className="text-[#666666] inline" /> : <ChevronDown size={16} className="text-[#666666] inline" />}
+                                {isExpanded ? <ChevronUp size={16} className="text-[var(--text-muted)] inline" /> : <ChevronDown size={16} className="text-[var(--text-muted)] inline" />}
                               </td>
                             </motion.tr>
                             
                             {isExpanded && (
-                              <tr className="bg-[#0a0a0a] border-b border-[#262626]">
+                              <tr className="bg-[var(--bg)] border-b border-[var(--border)]">
                                 <td colSpan={5} className="px-6 py-6">
                                   <div className="grid grid-cols-2 gap-8">
                                     <div>
-                                      <h4 className="text-xs uppercase text-[#666666] font-semibold mb-2">Request Context</h4>
-                                      <p className="text-sm text-[#a1a1a1] italic bg-[#111111] p-3 rounded-lg border border-[#262626]">
+                                      <h4 className="text-xs uppercase text-[var(--text-muted)] font-semibold mb-2">Request Context</h4>
+                                      <p className="text-sm text-[var(--text-secondary)] italic bg-[var(--bg-surface)] p-3 rounded-lg border border-[var(--border)]">
                                         &quot;{result.request_text}&quot;
                                       </p>
                                     </div>
                                     <div className="space-y-4">
                                       <div>
-                                        <h4 className="text-xs uppercase text-[#666666] font-semibold mb-1">Expected by Policy</h4>
-                                        <p className="text-sm font-medium text-[#ededed]">{result.policy_expected_outcome}</p>
+                                        <h4 className="text-xs uppercase text-[var(--text-muted)] font-semibold mb-1">Expected by Policy</h4>
+                                        <p className="text-sm font-medium text-[var(--text-primary)]">{result.policy_expected_outcome}</p>
                                       </div>
                                       <div>
-                                        <h4 className="text-xs uppercase text-[#666666] font-semibold mb-1">Reasoning</h4>
-                                        <p className="text-sm text-[#a1a1a1]">{result.reasoning}</p>
+                                        <h4 className="text-xs uppercase text-[var(--text-muted)] font-semibold mb-1">Reasoning</h4>
+                                        <p className="text-sm text-[var(--text-secondary)]">{result.reasoning}</p>
                                       </div>
                                     </div>
                                   </div>
@@ -275,7 +275,7 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
                 </table>
                 
                 {filteredResults.length === 0 && hasReplayed && (
-                  <div className="p-8 text-center text-[#666666]">
+                  <div className="p-8 text-center text-[var(--text-muted)]">
                     No cases match the selected filter.
                   </div>
                 )}
@@ -294,7 +294,7 @@ export default function ReplayPage({ params }: { params: Promise<{ workflowId: s
               >
                 <Link 
                   href="/live"
-                  className="flex items-center gap-2 bg-[#ededed] text-[#0a0a0a] px-8 py-3.5 rounded-full font-medium hover:bg-white transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg)] px-8 py-3.5 rounded-full font-medium hover:bg-white transition-all hover:scale-105 shadow-lg"
                 >
                   Try Live Case
                   <ArrowRight size={18} />
