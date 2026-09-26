@@ -30,14 +30,17 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Sidebar */}
       <aside className="flex w-[220px] flex-col border-r border-[var(--border)] bg-[var(--bg)]">
         {/* Logo */}
-        <Link href="/" className="flex h-14 items-center gap-2 border-b border-[var(--border)] px-4 transition-opacity hover:opacity-80">
-          <Image 
-            src="/images/logo_loophr.png" 
-            alt="LoopHR Logo" 
-            width={120} 
-            height={32} 
-            className="object-contain"
-          />
+        <Link href="/" className="flex h-14 items-center gap-3 border-b border-[var(--border)] px-4 transition-opacity hover:opacity-80">
+          <div className="flex h-7 w-7 items-center justify-center bg-white rounded-md shrink-0 shadow-sm p-1">
+            <Image 
+              src="/images/logo_loophr.png" 
+              alt="LoopHR Logo" 
+              width={22} 
+              height={22} 
+              className="object-contain"
+            />
+          </div>
+          <span className="text-sm font-semibold text-[var(--text-primary)]">LoopHR</span>
         </Link>
 
         {/* Nav */}

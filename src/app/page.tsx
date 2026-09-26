@@ -13,13 +13,15 @@ export default function HomePage() {
       <div className="mx-auto max-w-2xl text-center">
         {/* Logo */}
         <div className="mb-10 flex justify-center">
-          <Image 
-            src="/images/logo_loophr.png" 
-            alt="LoopHR Logo" 
-            width={180} 
-            height={48} 
-            className="object-contain"
-          />
+          <div className="bg-white rounded-[8px] p-2.5 shadow-sm inline-flex items-center justify-center">
+            <Image 
+              src="/images/logo_loophr.png" 
+              alt="LoopHR Logo" 
+              width={140} 
+              height={36} 
+              className="object-contain"
+            />
+          </div>
         </div>
 
         {/* Badge */}
