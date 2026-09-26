@@ -195,7 +195,7 @@ export default function ProcessPage({ params }: { params: Promise<{ workflowId: 
             </div>
           
             <button
-              onClick={() => alert('Automation deployed to Workday successfully!\n\nIn a real environment, this connects via Merge.dev or direct Workday REST APIs.')}
+              onClick={() => setIsDeployModalOpen(true)}
               className="flex items-center gap-2 bg-[var(--accent)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity shadow-sm"
             >
               Approve & Deploy
