@@ -13,12 +13,22 @@ import {
 
 import { cn } from '@/lib/utils';
 
-const navItems = [
-  { href: '/discover', label: 'Discover', icon: Search, step: 1 },
-  { href: '/process/add_dependent', label: 'Process', icon: Workflow, step: 2 },
-  { href: '/review/add_dependent', label: 'Review', icon: ShieldCheck, step: 3 },
-  { href: '/replay/add_dependent', label: 'Replay', icon: History, step: 4 },
-  { href: '/live', label: 'Live Case', icon: MessageSquare, step: 5 },
+const navSections = [
+  {
+    title: 'Discovery & Architecture',
+    items: [
+      { href: '/discover', label: 'Discover', icon: Search, step: 1 },
+      { href: '/process/add_dependent', label: 'Process', icon: Workflow, step: 2 },
+    ]
+  },
+  {
+    title: 'Testing & Audit',
+    items: [
+      { href: '/review/add_dependent', label: 'Policy Review', icon: ShieldCheck, step: 3 },
+      { href: '/replay/add_dependent', label: 'Replay', icon: History, step: 4 },
+      { href: '/live', label: 'Live Case', icon: MessageSquare, step: 5 },
+    ]
+  }
 ];
 
 import Image from 'next/image';
@@ -44,7 +54,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Sidebar */}
       <aside className="flex w-[220px] flex-col border-r border-[var(--border)] bg-[var(--bg)]">
         {/* Logo */}
-        <Link href="/" className="flex h-14 items-center gap-3 border-b border-[var(--border)] px-4 transition-opacity hover:opacity-80">
+        <Link href="/" className="flex h-14 items-center gap-3 border-b border-[var(--border)] px-4 transition-opacity hover:opacity-80 shrink-0">
           <div className="flex h-7 w-7 items-center justify-center bg-white rounded-md shrink-0 shadow-sm p-1">
             <Image 
               src="/images/logo_loophr.png" 
@@ -58,41 +68,37 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </Link>
 
         {/* Nav */}
-        <nav className="flex flex-1 flex-col gap-1 p-3">
-          {navItems.map((item) => {
-            const isActive =
-              pathname === item.href || pathname.startsWith(item.href + '/');
-            const requiresUnlock = item.step === 2 || item.step === 3 || item.step === 4;
-            const isDisabled = requiresUnlock && !isUnlocked;
+        <nav className="flex flex-1 flex-col gap-6 p-4 overflow-y-auto">
+          {navSections.map((section, idx) => (
+            <div key={idx} className="flex flex-col gap-1">
+              <div className="text-[10px] font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2 px-2">
+                {section.title}
+              </div>
+              {section.items.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+                const requiresUnlock = item.step === 2 || item.step === 3 || item.step === 4;
+                const isDisabled = requiresUnlock && !isUnlocked;
 
-            return (
-              <Link
-                key={item.href}
-                href={isDisabled ? '#' : item.href}
-                onClick={(e) => isDisabled && e.preventDefault()}
-                className={cn(
-                  'flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors',
-                  isActive
-                    ? 'bg-[var(--bg-elevated)] text-[var(--text-primary)]'
-                    : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)]',
-                  isDisabled && 'opacity-50 pointer-events-none'
-                )}
-              >
-                <item.icon className="h-4 w-4" />
-                <span>{item.label}</span>
-                <span
-                  className={cn(
-                    'ml-auto flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-medium',
-                    isActive
-                      ? 'bg-[var(--accent)] text-white'
-                      : 'bg-[var(--bg-surface)] text-[var(--text-muted)]',
-                  )}
-                >
-                  {item.step}
-                </span>
-              </Link>
-            );
-          })}
+                return (
+                  <Link
+                    key={item.href}
+                    href={isDisabled ? '#' : item.href}
+                    onClick={(e) => isDisabled && e.preventDefault()}
+                    className={cn(
+                      'flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors',
+                      isActive
+                        ? 'bg-[var(--bg-elevated)] text-[var(--text-primary)] font-medium shadow-sm border border-[var(--border)]'
+                        : 'text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] border border-transparent',
+                      isDisabled && 'opacity-50 pointer-events-none'
+                    )}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          ))}
         </nav>
 
         {/* Footer */}
