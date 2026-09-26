@@ -7,4 +7,4 @@ export function getGroqClient() {
   return createGroq({ apiKey: env.GROQ_API_KEY });
 }
 
-export const MODEL_ID = 'llama3-70b-8192' as const;
+export const MODEL_ID = 'openai/gpt-oss-120b' as const;
