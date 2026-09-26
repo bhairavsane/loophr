@@ -13,23 +13,15 @@ export default function HomePage() {
       <div className="mx-auto max-w-2xl text-center">
         {/* Logo */}
         <div className="mb-10 flex justify-center">
-          <div className="bg-white rounded-[8px] p-2.5 shadow-sm inline-flex items-center justify-center">
+          <div className="bg-white rounded-[8px] p-2 shadow-sm inline-flex items-center justify-center">
             <Image 
               src="/images/logo_loophr.png" 
               alt="LoopHR Logo" 
-              width={140} 
-              height={36} 
+              width={100} 
+              height={26} 
               className="object-contain"
             />
           </div>
-        </div>
-
-        {/* Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-surface)] px-3 py-1.5">
-          <Zap className="h-3 w-3 text-[var(--accent)]" />
-          <span className="text-xs text-[var(--text-secondary)]">
-            AI-powered HR automation discovery
-          </span>
         </div>
 
         {/* Headline */}
@@ -50,7 +42,6 @@ export default function HomePage() {
           onClick={() => router.push('/discover')}
           className="inline-flex items-center gap-2 rounded-md bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
         >
-          <Upload className="h-4 w-4" />
           Analyze HR Cases
           <ArrowRight className="h-4 w-4" />
         </button>
