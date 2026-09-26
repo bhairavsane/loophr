@@ -1,6 +1,7 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import * as React from "react";
 import { Upload, ArrowRight, Zap, ShieldCheck, GitBranch } from 'lucide-react';
 
 import Image from 'next/image';
@@ -8,6 +9,13 @@ import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function HomePage() {
   const router = useRouter();
+
+  // Reset the demo lock state whenever someone lands on the root page
+  // This allows the user to do multiple dry runs of the pitch seamlessly
+  React.useEffect(() => {
+    localStorage.removeItem('loophr_demo_unlocked');
+    window.dispatchEvent(new Event('demo_unlocked')); // Fire event to update AppShell immediately
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[var(--bg)] px-4 relative">
